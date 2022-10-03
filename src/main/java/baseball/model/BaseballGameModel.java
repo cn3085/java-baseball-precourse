@@ -1,6 +1,8 @@
 package baseball.model;
 
+import baseball.code.JudgeStatus;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ public class BaseballGameModel {
 
     public BaseballGameModel() {
         setNewGame();
+        System.out.println(Arrays.deepToString(ballNumbers));
     }
 
     public void setNewGame(){
@@ -28,6 +31,14 @@ public class BaseballGameModel {
         return ballNumberSet.toArray(new Integer[3]);
     }
 
+    public JudgeModel judge(Integer[] inpuptNumbers){
+        JudgeModel judgeModel = new JudgeModel(inpuptNumbers, ballNumbers);
+        if(judgeModel.getJudgeStatus() == JudgeStatus.STRIKE){
+            this.notYetCollectAnswer = false;
+        }
+        return judgeModel;
+    }
+
     public Integer[] getBallNumbers() {
         return ballNumbers;
     }
@@ -38,5 +49,13 @@ public class BaseballGameModel {
 
     public boolean getWantNewGame(){
         return wantNewGame;
+    }
+
+    public void setWantNewGame(String playersCommand, String newGameCommand) {
+        if (playersCommand.equals(newGameCommand)){
+            setNewGame();
+            return;
+        }
+        wantNewGame = false;
     }
 }
