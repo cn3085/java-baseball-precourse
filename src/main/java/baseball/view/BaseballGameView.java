@@ -1,9 +1,12 @@
 package baseball.view;
 
-public interface BaseballGameView<IN, OUT> {
+import baseball.model.JudgeModel;
 
-    IN inputPlayersTry();
-    OUT responseJudge();
-    OUT sayWelcome();
-    OUT sayByeBye();
+public interface BaseballGameView {
+
+    String inputPlayersTry();
+    String inputOneMoreGame(String newGameCode, String quitGameCode);
+    void responseJudge(JudgeModel judgeModel);
+    void sayWelcome();
+    void sayByeBye();
 }
