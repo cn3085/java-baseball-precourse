@@ -28,6 +28,10 @@ public class BaseballGameModel {
         return ballNumberSet.toArray(new Integer[3]);
     }
 
+    public Integer[] getBallNumbers() {
+        return ballNumbers;
+    }
+
     public boolean getNotYetCollectAnswer(){
         return notYetCollectAnswer;
     }
