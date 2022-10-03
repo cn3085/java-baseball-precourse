@@ -23,7 +23,7 @@ public class BaseballGameModel {
     private Integer[] pickNewBallNumbers() {
         Set<Integer> ballNumberSet = new HashSet<>();
         while (ballNumberSet.size() < 3) {
-            ballNumberSet.add(Randoms.pickNumberInRange(0, 9));
+            ballNumberSet.add(Randoms.pickNumberInRange(1, 9));
         }
         return ballNumberSet.toArray(new Integer[3]);
     }
